@@ -52,3 +52,24 @@ def classify_waste(img):
     #print("Confidence Score:", confidence_score)
 
     return class_name, confidence_score
+
+
+st.set_page_config(layout='wide')
+
+st.title("Waste Classifier Sustainability App")
+
+input_img = st.file_uploader("Enter your image", type=['jpg', 'png', 'jpeg'])
+
+
+if input_img is not None:
+    if st.button("Classify"):
+        with col1:
+            st.info("Your uploaded Image")
+            st.image(input_img, use_column_width=True)
+
+        with col2:
+            st.info("Your Result")
+
+        with col3:
+            result = generate_carbon_footprint_info(label)
+        
